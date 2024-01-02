@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <section>
+            <div class="calcField">
+                <h2 id="outputLineTop"></h2>
+                <h2 id="outputLineMiddle"></h2>
+                <h2 id="outputLineBottom"></h2>
+            </div>
+            <div class="calcResult">
+                <h2 id="resultOutput"></h2>
+            </div>
+        </section>
+    </header>
+    <main>
+        <div class="firstPageCalc">
+            <button onclick="writeInCalc(1)" >1</button>
+            <button onclick="writeInCalc(2)" >2</button>
+            <button onclick="writeInCalc(3)" >3</button>
+            <button onclick="writeInCalc('+')" >+</button>
+            <button onclick="writeInCalc('**')" >x<span class="upper">a</span></button>
+            <button onclick="writeInCalc(4)" >4</button>
+            <button onclick="writeInCalc(5)" >5</button>
+            <button onclick="writeInCalc(6)" >6</button>
+            <button onclick="writeInCalc('-')" >-</button>
+            <button onclick="writeInCalc('**(1/')" ><span class="upper">a</span>√x</button>
+            <button onclick="writeInCalc(7)" >7</button>
+            <button onclick="writeInCalc(8)" >8</button>
+            <button onclick="writeInCalc(9)" >9</button>
+            <button onclick="writeInCalc('*')" >x</button>
+            <button onclick="writeInCalc(Math.PI)" >π</button>
+            <button onclick="writeInCalc('.')" >.</button>
+            <button onclick="writeInCalc(0)" >0</button>
+            <button class="equalButton" onclick="calculateResult()" >=</button>
+            <button onclick="writeInCalc('/')" >/</button>
+            <button onclick="writeInCalc(Math.E)" >e</button>
+            <button onclick="writeInCalc('(')" >(</button>
+            <button onclick="writeInCalc(')')" >)</button>
+            <button class="clearButton" onclick="eraseInCalcField()" >del</button>
+            <button class="clearButton" onclick="DeleteAll()" >clear</button>
+            <button class="MemoryButton" onclick="switchToMem()" >Mem</button>
+        </div>
+        <div class="secondPageCalc switch">
+            <div class="changeButtonLayout changerOne">
+                <button onclick="writeValue1()">Memory 1</button>
+                <button onclick="writeValue2()">Memory 2</button>
+                <button onclick="writeValue3()">Memory 3</button>
+                <button onclick="writeValue4()">Memory 4</button>
+            </div>
+            <div class="buttonLayoutDifferent">
+                <button></button>
+                <button></button>
+                <button class="changeAttributeButton" onclick="setPageThree()">save to</button>
+                <button class="changeAttributeButton" onclick="setPageFour()">name it</button>
+                <button class="calcButton" onclick="switchToCalc()" >Calc</button>
+            </div>
+        </div>
+        <div class="thirdPageSave switch">
+            <div class="changeButtonLayout changerTwo">
+                <button onclick="changeValue1()">Memory 1</button>
+                <button onclick="changeValue2()">Memory 2</button>
+                <button onclick="changeValue3()">Memory 3</button>
+                <button onclick="changeValue4()">Memory 4</button>
+            </div>
+            <div class="buttonLayoutDifferent">
+                <button></button>
+                <button></button>
+                <button class="changeAttributeButton pressedState" onclick="setPageThree()">save to</button>
+                <button class="changeAttributeButton" onclick="setPageFour()">name it</button>
+                <button class="calcButton" onclick="switchToCalc()" >Calc</button>
+            </div>
+        </div>
+        <div class="fourthPageRename switch">
+            <div class="changeButtonLayout changerThree">
+                <button onclick="changeName(1)">Memory 1</button>
+                <button onclick="changeName(2)">Memory 2</button>
+                <button onclick="changeName(3)">Memory 3</button>
+                <button onclick="changeName(4)">Memory 4</button>
+            </div>
+            <div class="buttonLayoutDifferent">
+                <button></button>
+                <button></button>
+                <button class="changeAttributeButton" onclick="setPageThree()">save to</button>
+                <button class="changeAttributeButton pressedState" onclick="setPageFour()">name it</button>
+                <button class="calcButton" onclick="switchToCalc()" >Calc</button>
+            </div>
+        </div>
+    </main>
+    <div class="wholescreenModal switch">
+        <div class="inputModal">
+            <form onsubmit="return false">
+                <label>New name: <br>
+                    <input id="inputNewName" type="text">
+                </label>
+                <br>
+                <input type="submit" value="save as" onclick="saveChangeName()">
+            </form>
+        </div>
+    </div>
+    <!-- <div class="resizableElement"></div> -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

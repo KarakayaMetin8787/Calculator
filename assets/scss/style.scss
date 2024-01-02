@@ -1,0 +1,506 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: fixed;
+    bottom: 5vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    color: white;
+    @media (max-width: 1000px) {
+        grid-template-columns: 100px 1fr 100px;
+    }
+    @media (max-width: 775px) {
+        grid-template-columns: 30px 1fr 30px;
+    }
+    @media (max-width: 380px) {
+        grid-template-columns: 5px 1fr 5px;
+    }
+    header {
+        margin-top: 3rem;
+        grid-column: 2/3;
+        @media (max-width: 1280px) {
+            margin-top: 1rem;
+        }
+        @media (max-width: 992px) {
+            margin-top: 4rem;
+        }
+        @media (max-width: 320px) {
+            margin-top: 1rem;
+        }
+        section {
+            .calcField {
+                h2 {
+                    text-align: end;
+                    font-weight: 400;
+                    padding: 1rem;
+                    font-size: 2rem;
+                    height: 4rem;
+                    background-color: rgb(30, 30, 30);
+                    &:nth-of-type(1) {
+                        border-top-left-radius: 1rem;
+                        border-top-right-radius: 1rem;
+                    }
+                    @media (max-width: 1280px) {
+                        font-size: 1.5rem;
+                        height: 3rem;                    
+                    }
+                    @media (max-width: 475px) {
+                        font-size: 1rem;
+                        padding: 0.5rem;
+                        height: 2rem;
+                    }
+                }
+            }
+            .calcResult {
+                h2 {
+                    text-align: end;
+                    font-weight: 400;
+                    padding: 1rem;
+                    font-size: 2rem;
+                    height: 4rem;
+                    background-color: rgb(40, 40, 40);
+                    @media (max-width: 475px) {
+                        font-size: 1rem;
+                        padding: 0.5rem;
+                        height: 2rem;
+                    }
+                }
+            }
+        }
+    }
+    main {
+        margin-top: 1rem;
+        grid-column: 2/3;
+        position: relative;
+        .firstPageCalc {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            @media (max-width: 600px) {
+                gap: 0.5rem;
+            }
+            button {
+                height: 6rem;
+                border: none;
+                border-radius: 1rem;
+                cursor: pointer;
+                box-shadow: 0 6px rgb(30, 30, 30);
+                padding: 1rem;
+                font-size: 2rem;
+                background-color: rgb(40, 40, 40);
+                color: white;
+                text-shadow: 3px 3px 0px black;
+                &:active {
+                    box-shadow: none;
+                    transform: translateY(6px);
+                    background-color: rgba(40, 40, 40, 0.2);
+                    @media (max-width: 940px) {
+                        transform: translateY(3px);
+                    }
+                }
+                @media (max-width: 940px) {
+                    padding: 0.5rem;
+                    box-shadow: 0 3px rgb(30, 30, 30);
+                }
+                @media (max-width: 600px) {
+                    padding: 0.25rem;
+                    box-shadow: 0 3px rgb(30, 30, 30);
+                    font-size: 1.5rem;
+                    height: 4.25rem;
+                }
+            }
+            .MemoryButton {
+                background-color: rgb(184, 148, 55);
+                box-shadow: 0 6px rgb(86, 69, 25);
+                &:active {
+                    background-color: rgb(58, 47, 18);
+                }
+            }
+            .clearButton {
+                background-color: rgb(144, 26, 26);
+                box-shadow: 0 6px rgb(105, 20, 20);
+                &:active {
+                    background-color: rgb(58, 12, 12);
+                }
+            }
+            .equalButton {
+                background-color: rgb(43, 150, 155);
+                box-shadow: 0 6px rgb(31, 109, 113);
+                &:active {
+                    background-color: rgb(15, 50, 52);
+                }
+            }
+        }
+        .secondPageCalc {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            .changeButtonLayout {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                @media (max-width: 600px) {
+                    gap: 0.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                button {
+                    height: 6rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px rgb(86, 69, 25);
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background-color: rgb(184, 148, 55);
+                    color: white;
+                    text-shadow: 3px 3px 0px black;
+                    &:active {
+                        box-shadow: none;
+                        transform: translateY(6px);
+                        background-color: rgb(58, 47, 18);
+                        @media (max-width: 940px) {
+                            transform: translateY(3px);
+                        }
+                    }
+                    @media (max-width: 940px) {
+                        padding: 0.5rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                    }
+                    @media (max-width: 600px) {
+                        padding: 0.25rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                        font-size: 1.5rem;
+                        height: 4.25rem;
+                    }
+                }
+            }
+            .buttonLayoutDifferent {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1rem;
+                @media (max-width: 600px) {
+                    gap: 0.5rem;
+                }
+                button {
+                    height: 6rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px rgb(86, 69, 25);
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background-color: rgb(184, 148, 55);
+                    color: white;
+                    text-shadow: 3px 3px 0px black;
+                    &:active {
+                        box-shadow: none;
+                        transform: translateY(6px);
+                        background-color: rgb(58, 47, 18);
+                        @media (max-width: 940px) {
+                            transform: translateY(3px);
+                        }
+                    }
+                    @media (max-width: 940px) {
+                        padding: 0.5rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                    }
+                    @media (max-width: 600px) {
+                        padding: 0.25rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                        font-size: 1.5rem;
+                        height: 4.25rem;
+                    }
+                }
+                .calcButton {
+                    box-shadow: 0 6px rgb(30, 30, 30);
+                    background-color: rgb(40, 40, 40);
+                    &:active {
+                        background-color: rgba(40, 40, 40, 0.2);
+                    }
+                }
+                .changeAttributeButton {
+                    box-shadow: 0 6px rgb(121, 77, 35);
+                    background-color: rgb(184, 117, 55);
+                    &:active {
+                        background-color: rgb(73, 46, 21);
+                    }
+                }
+            }
+        }
+        .thirdPageSave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            .changeButtonLayout {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                @media (max-width: 600px) {
+                    gap: 0.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                button {
+                    height: 6rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px rgb(86, 69, 25);
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background-color: rgb(184, 148, 55);
+                    color: white;
+                    text-shadow: 3px 3px 0px black;
+                    &:active {
+                        box-shadow: none;
+                        transform: translateY(6px);
+                        background-color: rgb(58, 47, 18);
+                        @media (max-width: 940px) {
+                            transform: translateY(3px);
+                        }
+                    }
+                    @media (max-width: 940px) {
+                        padding: 0.5rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                    }
+                    @media (max-width: 600px) {
+                        padding: 0.25rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                        font-size: 1.5rem;
+                        height: 4.25rem;
+                    }
+                }
+            }
+            .buttonLayoutDifferent {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1rem;
+                @media (max-width: 600px) {
+                    gap: 0.5rem;
+                }
+                button {
+                    height: 6rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px rgb(86, 69, 25);
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background-color: rgb(184, 148, 55);
+                    color: white;
+                    text-shadow: 3px 3px 0px black;
+                    &:active {
+                        box-shadow: none;
+                        transform: translateY(6px);
+                        background-color: rgb(58, 47, 18);
+                        @media (max-width: 940px) {
+                            transform: translateY(3px);
+                        }
+                    }
+                    @media (max-width: 940px) {
+                        padding: 0.5rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                    }
+                    @media (max-width: 600px) {
+                        padding: 0.25rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                        font-size: 1.5rem;
+                        height: 4.25rem;
+                    }
+                }
+                .calcButton {
+                    box-shadow: 0 6px rgb(30, 30, 30);
+                    background-color: rgb(40, 40, 40);
+                    &:active {
+                        background-color: rgba(40, 40, 40, 0.2);
+                    }
+                }
+                .changeAttributeButton {
+                    box-shadow: 0 6px rgb(121, 77, 35);
+                    background-color: rgb(184, 117, 55);
+                    &:active {
+                        background-color: rgb(73, 46, 21);
+                    }
+                }
+            }
+        }
+        .fourthPageRename {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            .changeButtonLayout {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                @media (max-width: 600px) {
+                    gap: 0.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                button {
+                    height: 6rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px rgb(86, 69, 25);
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background-color: rgb(184, 148, 55);
+                    color: white;
+                    text-shadow: 3px 3px 0px black;
+                    &:active {
+                        box-shadow: none;
+                        transform: translateY(6px);
+                        background-color: rgb(58, 47, 18);
+                        @media (max-width: 940px) {
+                            transform: translateY(3px);
+                        }
+                    }
+                    @media (max-width: 940px) {
+                        padding: 0.5rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                    }
+                    @media (max-width: 600px) {
+                        padding: 0.25rem;
+                        box-shadow: 0 3px rgb(30, 30, 30);
+                        font-size: 1.5rem;
+                        height: 4.25rem;
+                    }
+                }
+            }
+        }
+        .buttonLayoutDifferent {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            @media (max-width: 600px) {
+                gap: 0.5rem;
+            }
+            button {
+                height: 6rem;
+                border: none;
+                border-radius: 1rem;
+                cursor: pointer;
+                box-shadow: 0 6px rgb(86, 69, 25);
+                padding: 1rem;
+                font-size: 2rem;
+                background-color: rgb(184, 148, 55);
+                color: white;
+                text-shadow: 3px 3px 0px black;
+                &:active {
+                    box-shadow: none;
+                    transform: translateY(6px);
+                    background-color: rgb(58, 47, 18);
+                    @media (max-width: 940px) {
+                        transform: translateY(3px);
+                    }
+                }
+                @media (max-width: 940px) {
+                    padding: 0.5rem;
+                    box-shadow: 0 3px rgb(30, 30, 30);
+                }
+                @media (max-width: 600px) {
+                    padding: 0.25rem;
+                    box-shadow: 0 3px rgb(30, 30, 30);
+                    font-size: 1.5rem;
+                    height: 4.25rem;
+                }
+            }
+            .calcButton {
+                box-shadow: 0 6px rgb(30, 30, 30);
+                background-color: rgb(40, 40, 40);
+                &:active {
+                    background-color: rgba(40, 40, 40, 0.2);
+                }
+            }
+            .changeAttributeButton {
+                box-shadow: 0 6px rgb(121, 77, 35);
+                background-color: rgb(184, 117, 55);
+                &:active {
+                    background-color: rgb(73, 46, 21);
+                }
+            }
+
+        }
+    }
+    .wholescreenModal {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        .inputModal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30%;
+            background-color: grey;
+            transform: translate(-50%, -50%);
+            padding: 1rem;
+            text-align: center;        
+            form {
+                display: grid;
+                grid-template-columns: 1fr;
+                label {
+                    font-size: 2rem;
+                    @media (max-width: 600px) {
+                        font-size: 1rem;
+                    }
+                    input {
+                        width: 100%;
+                        margin-block: 0.5rem;
+                        font-size: 2rem;
+                        padding: 1rem;
+                        @media (max-width: 600px) {
+                            font-size: 1rem;
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+                input {
+                    width: 100%;
+                    font-size: 2rem;
+                    padding: 1rem;
+                    @media (max-width: 600px) {
+                        font-size: 1rem;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    .switch {
+        visibility: hidden;
+    }
+    // .resizableElement {
+    //     resize: both;
+    //     width: 100%;
+    //     border-top: 1px solid grey;
+    //     height: 10px;
+    //     display: block;
+    // }
+}
+
+.pressedState {
+    transform: translateY(6px);
+    box-shadow: 0px 0px rgb(121, 77, 35) !important;
+    background-color: rgb(73, 46, 21) !important;
+}
+
+.upper {
+    vertical-align: super;
+    font-size: 1.5rem;
+}

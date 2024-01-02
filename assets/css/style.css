@@ -1,0 +1,574 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: fixed;
+  bottom: 5vh;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  color: white;
+}
+@media (max-width: 1000px) {
+  body {
+    grid-template-columns: 100px 1fr 100px;
+  }
+}
+@media (max-width: 775px) {
+  body {
+    grid-template-columns: 30px 1fr 30px;
+  }
+}
+@media (max-width: 380px) {
+  body {
+    grid-template-columns: 5px 1fr 5px;
+  }
+}
+body header {
+  margin-top: 3rem;
+  grid-column: 2/3;
+}
+@media (max-width: 1280px) {
+  body header {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 992px) {
+  body header {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 320px) {
+  body header {
+    margin-top: 1rem;
+  }
+}
+body header section .calcField h2 {
+  text-align: end;
+  font-weight: 400;
+  padding: 1rem;
+  font-size: 2rem;
+  height: 4rem;
+  background-color: rgb(30, 30, 30);
+}
+body header section .calcField h2:nth-of-type(1) {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+@media (max-width: 1280px) {
+  body header section .calcField h2 {
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+}
+@media (max-width: 475px) {
+  body header section .calcField h2 {
+    font-size: 1rem;
+    padding: 0.5rem;
+    height: 2rem;
+  }
+}
+body header section .calcResult h2 {
+  text-align: end;
+  font-weight: 400;
+  padding: 1rem;
+  font-size: 2rem;
+  height: 4rem;
+  background-color: rgb(40, 40, 40);
+}
+@media (max-width: 475px) {
+  body header section .calcResult h2 {
+    font-size: 1rem;
+    padding: 0.5rem;
+    height: 2rem;
+  }
+}
+body main {
+  margin-top: 1rem;
+  grid-column: 2/3;
+  position: relative;
+}
+body main .firstPageCalc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  body main .firstPageCalc {
+    gap: 0.5rem;
+  }
+}
+body main .firstPageCalc button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(30, 30, 30);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .firstPageCalc button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgba(40, 40, 40, 0.2);
+}
+@media (max-width: 940px) {
+  body main .firstPageCalc button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .firstPageCalc button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .firstPageCalc button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .firstPageCalc .MemoryButton {
+  background-color: rgb(184, 148, 55);
+  box-shadow: 0 6px rgb(86, 69, 25);
+}
+body main .firstPageCalc .MemoryButton:active {
+  background-color: rgb(58, 47, 18);
+}
+body main .firstPageCalc .clearButton {
+  background-color: rgb(144, 26, 26);
+  box-shadow: 0 6px rgb(105, 20, 20);
+}
+body main .firstPageCalc .clearButton:active {
+  background-color: rgb(58, 12, 12);
+}
+body main .firstPageCalc .equalButton {
+  background-color: rgb(43, 150, 155);
+  box-shadow: 0 6px rgb(31, 109, 113);
+}
+body main .firstPageCalc .equalButton:active {
+  background-color: rgb(15, 50, 52);
+}
+body main .secondPageCalc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body main .secondPageCalc .changeButtonLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  body main .secondPageCalc .changeButtonLayout {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+body main .secondPageCalc .changeButtonLayout button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .secondPageCalc .changeButtonLayout button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .secondPageCalc .changeButtonLayout button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .secondPageCalc .changeButtonLayout button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .secondPageCalc .changeButtonLayout button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .secondPageCalc .buttonLayoutDifferent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  body main .secondPageCalc .buttonLayoutDifferent {
+    gap: 0.5rem;
+  }
+}
+body main .secondPageCalc .buttonLayoutDifferent button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .secondPageCalc .buttonLayoutDifferent button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .secondPageCalc .buttonLayoutDifferent button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .secondPageCalc .buttonLayoutDifferent button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .secondPageCalc .buttonLayoutDifferent button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .secondPageCalc .buttonLayoutDifferent .calcButton {
+  box-shadow: 0 6px rgb(30, 30, 30);
+  background-color: rgb(40, 40, 40);
+}
+body main .secondPageCalc .buttonLayoutDifferent .calcButton:active {
+  background-color: rgba(40, 40, 40, 0.2);
+}
+body main .secondPageCalc .buttonLayoutDifferent .changeAttributeButton {
+  box-shadow: 0 6px rgb(121, 77, 35);
+  background-color: rgb(184, 117, 55);
+}
+body main .secondPageCalc .buttonLayoutDifferent .changeAttributeButton:active {
+  background-color: rgb(73, 46, 21);
+}
+body main .thirdPageSave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body main .thirdPageSave .changeButtonLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  body main .thirdPageSave .changeButtonLayout {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+body main .thirdPageSave .changeButtonLayout button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .thirdPageSave .changeButtonLayout button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .thirdPageSave .changeButtonLayout button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .thirdPageSave .changeButtonLayout button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .thirdPageSave .changeButtonLayout button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .thirdPageSave .buttonLayoutDifferent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  body main .thirdPageSave .buttonLayoutDifferent {
+    gap: 0.5rem;
+  }
+}
+body main .thirdPageSave .buttonLayoutDifferent button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .thirdPageSave .buttonLayoutDifferent button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .thirdPageSave .buttonLayoutDifferent button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .thirdPageSave .buttonLayoutDifferent button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .thirdPageSave .buttonLayoutDifferent button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .thirdPageSave .buttonLayoutDifferent .calcButton {
+  box-shadow: 0 6px rgb(30, 30, 30);
+  background-color: rgb(40, 40, 40);
+}
+body main .thirdPageSave .buttonLayoutDifferent .calcButton:active {
+  background-color: rgba(40, 40, 40, 0.2);
+}
+body main .thirdPageSave .buttonLayoutDifferent .changeAttributeButton {
+  box-shadow: 0 6px rgb(121, 77, 35);
+  background-color: rgb(184, 117, 55);
+}
+body main .thirdPageSave .buttonLayoutDifferent .changeAttributeButton:active {
+  background-color: rgb(73, 46, 21);
+}
+body main .fourthPageRename {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body main .fourthPageRename .changeButtonLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  body main .fourthPageRename .changeButtonLayout {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+body main .fourthPageRename .changeButtonLayout button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .fourthPageRename .changeButtonLayout button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .fourthPageRename .changeButtonLayout button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .fourthPageRename .changeButtonLayout button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .fourthPageRename .changeButtonLayout button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .buttonLayoutDifferent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  body main .buttonLayoutDifferent {
+    gap: 0.5rem;
+  }
+}
+body main .buttonLayoutDifferent button {
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px rgb(86, 69, 25);
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(184, 148, 55);
+  color: white;
+  text-shadow: 3px 3px 0px black;
+}
+body main .buttonLayoutDifferent button:active {
+  box-shadow: none;
+  transform: translateY(6px);
+  background-color: rgb(58, 47, 18);
+}
+@media (max-width: 940px) {
+  body main .buttonLayoutDifferent button:active {
+    transform: translateY(3px);
+  }
+}
+@media (max-width: 940px) {
+  body main .buttonLayoutDifferent button {
+    padding: 0.5rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+  }
+}
+@media (max-width: 600px) {
+  body main .buttonLayoutDifferent button {
+    padding: 0.25rem;
+    box-shadow: 0 3px rgb(30, 30, 30);
+    font-size: 1.5rem;
+    height: 4.25rem;
+  }
+}
+body main .buttonLayoutDifferent .calcButton {
+  box-shadow: 0 6px rgb(30, 30, 30);
+  background-color: rgb(40, 40, 40);
+}
+body main .buttonLayoutDifferent .calcButton:active {
+  background-color: rgba(40, 40, 40, 0.2);
+}
+body main .buttonLayoutDifferent .changeAttributeButton {
+  box-shadow: 0 6px rgb(121, 77, 35);
+  background-color: rgb(184, 117, 55);
+}
+body main .buttonLayoutDifferent .changeAttributeButton:active {
+  background-color: rgb(73, 46, 21);
+}
+body .wholescreenModal {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+}
+body .wholescreenModal .inputModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  background-color: grey;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  text-align: center;
+}
+body .wholescreenModal .inputModal form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+body .wholescreenModal .inputModal form label {
+  font-size: 2rem;
+}
+@media (max-width: 600px) {
+  body .wholescreenModal .inputModal form label {
+    font-size: 1rem;
+  }
+}
+body .wholescreenModal .inputModal form label input {
+  width: 100%;
+  margin-block: 0.5rem;
+  font-size: 2rem;
+  padding: 1rem;
+}
+@media (max-width: 600px) {
+  body .wholescreenModal .inputModal form label input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+body .wholescreenModal .inputModal form input {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem;
+}
+@media (max-width: 600px) {
+  body .wholescreenModal .inputModal form input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+body .switch {
+  visibility: hidden;
+}
+
+.pressedState {
+  transform: translateY(6px);
+  box-shadow: 0px 0px rgb(121, 77, 35) !important;
+  background-color: rgb(73, 46, 21) !important;
+}
+
+.upper {
+  vertical-align: super;
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
