@@ -10,13 +10,13 @@ There are still features worked on.
 
 ## Screenshots
 
-![App Screenshot](./src/assets/screenshot1.png)
+![App Screenshot](./assets/screenshot1.png)
 
-![App Screenshot](./src/assets/screenshot2.png)
+![App Screenshot](./assets/screenshot2.png)
 
-![App Screenshot](./src/assets/screenshot3.png)
+![App Screenshot](./assets/screenshot3.png)
 
-![App Screenshot](./src/assets/screenshot4.png)
+![App Screenshot](./assets/screenshot4.png)
 
 ## Demo
 
